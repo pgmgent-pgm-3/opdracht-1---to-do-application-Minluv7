@@ -46,7 +46,7 @@ header {
 .left-box {
   display: flex;
   padding: 1rem;
-  justify-content: space-between;
+  gap: 4rem;
 }
 
 .left-box,
