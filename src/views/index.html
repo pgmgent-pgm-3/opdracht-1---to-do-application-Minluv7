@@ -16,7 +16,7 @@
             <img src="img/logo.png" alt="logo" />
             <h1>Just do it!</h1>
           </div>
-          <button>Logout</button>
+          <button class="logout">Logout</button>
         </div>
       </div>
     </header>
@@ -24,17 +24,17 @@
       <div class="space_side">
         <div class="side">
           <h3>Categories</h3>
-          <button>Default</button>
-          <button>Household</button>
+          <button class="categories">Default</button>
+          <button class="categories">Household</button>
         </div>
       </div>
       <div class="todo_add_dones">
         <div class="space_add">
           <h2>We've got things to do!</h2>
           <div class="add">
-            <label>
+            <form>
               <input type="search" placeholder="what is your task?" />
-            </label>
+            </form>
             <button class="plus_svg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@
                   />
                 </svg>
               </button>
-              <div class="result"><p>some text</p></div>
+              <div class="result"><ul></ul></div>
               <button class="delete_svg">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 58.67">
                   <defs>
@@ -124,7 +124,7 @@
         <div class="space_done">
           <h2>Things you've done!</h2>
           <div class="output">
-            <div class="result"><p>gedaan</p></div>
+            <div class="result"><ul></ul></div>
             <button class="delete_svg">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 58.67">
                 <defs>

@@ -3,9 +3,12 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   color: hsl(271, 76%, 53%);
+}
+
+h3 {
+  color: hsl(0, 0%, 100%);
 }
 
 header {
@@ -15,7 +18,6 @@ header {
 .check_svg {
   border: none;
   background-color: hsl(120deg 82% 38%);
-  border-radius: 20%;
 }
 
 .check_svg:hover {
@@ -24,17 +26,15 @@ header {
 
 .change_svg {
   border: none;
-  border-radius: 20%;
 }
 
 .change_svg:hover,
 .change_svg svg :hover {
-  background-color: rgb(90, 89, 89);
-  fill: aliceblue;
+  background-color: hsl(0, 1%, 35%);
+  fill: hsl(208, 100%, 97%);
 }
 
 .delete_svg {
-  border-radius: 20%;
   border: none;
   background-color: hsl(0, 55%, 48%);
 }
@@ -61,6 +61,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 
 .side {
@@ -71,7 +72,6 @@ header {
 }
 
 .output {
-  gap: 0.4375rem;
   display: flex;
 }
 
@@ -83,6 +83,7 @@ header {
   background-color: hsl(0, 0%, 100%);
   padding: 0.1875rem;
   width: 100%;
+  height: 1.8125rem;
 }
 
 .add {
@@ -108,4 +109,33 @@ header {
 .logo_title img {
   width: 2rem;
   height: 2rem;
+}
+
+.logout,
+.categories {
+  border: none;
+  background: hsl(259, 56%, 50%);
+  padding: 4px 8px;
+  color: hsl(0, 0%, 100%);
+  border-radius: 1rem;
+}
+
+.logout:hover,
+.categories:hover {
+  background: hsl(259, 51%, 56%);
+}
+
+.space_side {
+  border-right: 0.0625rem solid hsl(0, 0%, 100%);
+  padding-right: 2rem;
+  height: 100vh;
+}
+
+.todo_add_dones {
+  width: 100vh;
+}
+
+form,
+input {
+  width: 100%;
 }
