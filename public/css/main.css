@@ -72,6 +72,10 @@ header {
 }
 
 .output {
+  padding: 0;
+}
+
+.output li {
   display: flex;
 }
 
