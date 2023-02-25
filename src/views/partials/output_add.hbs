@@ -1,0 +1,18 @@
+<ul class="output_add">
+  {{#each output_add}}
+    <li>
+      <button class="check_svg">
+        <img src="{{check_btn}}" alt="{{name1}}" />
+      </button>
+      <div class="result">
+        {{text}}
+      </div>
+      <button class="delete_svg">
+        <img src="{{delete_btn}}" alt="{{name3}}" />
+      </button>
+      <button class="change_svg">
+        <img src="{{change_btn}}" alt="{{name2}}" />
+      </button>
+    </li>
+  {{/each}}
+</ul>

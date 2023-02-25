@@ -5,7 +5,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import { create } from "express-handlebars";
 import { SOURCE_PATH } from "./constants.js";
-
+import { DefaultDeserializer } from "v8";
+import data from "./data/data.js";
 //create express app
 const app = express();
 
@@ -28,7 +29,7 @@ const port = process.env.PORT || 3000;
 
 // ----------- ROUTES -------------- //
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", data);
 });
 
 //start the app

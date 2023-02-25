@@ -1,0 +1,13 @@
+<h2>Things you've done!</h2>
+<ul class="output">
+  {{#each output}}
+    <li>
+      <div class="result">
+        {{text}}
+      </div>
+      <button class="delete_svg">
+        <img src="{{delete_btn}}" alt="{{delete}}" />
+      </button>
+    </li>
+  {{/each}}
+</ul>

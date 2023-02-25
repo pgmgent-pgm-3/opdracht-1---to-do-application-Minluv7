@@ -71,15 +71,19 @@ header {
   gap: 1rem;
 }
 
-.output {
+.output,
+.output_add {
   padding: 0;
 }
 
-.output li {
+.output li,
+.output_add li {
   display: flex;
+  padding: 0.375rem;
 }
 
-.output button svg {
+.output button img,
+.output_add button img {
   width: 1rem;
 }
 
@@ -94,7 +98,7 @@ header {
   display: flex;
 }
 
-.add button svg {
+.add button img {
   width: 1rem;
 }
 
