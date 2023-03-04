@@ -1,29 +1,26 @@
 export default {
-  header: [
-    {
-      image: "../img/logo.png",
-      title: "Just do it!",
-      name: "logo",
-      button: "Logout",
-    },
-  ],
+  header: {
+    image: "../img/logo.png",
+    title: "Just do it!",
+    name: "logo",
+    button: "Logout",
+  },
 
   nav_item: [
     {
-      name: "Default",
+      name: "Books",
     },
     {
-      name: "household",
+      name: "Movies",
     },
   ],
-  add: [
-    {
-      title: "We've got things to do!",
-      placeholder: "what us your task?",
-      svg: "../img/plus.svg",
-      svgName: "plus",
-    },
-  ],
+
+  add: {
+    title: "We've got things to do!",
+    placeholder: "what us your task?",
+    svg: "../img/plus.svg",
+    svgName: "plus",
+  },
 
   output_add: [
     {
