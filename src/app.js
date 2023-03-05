@@ -15,7 +15,12 @@ import {
   deleteTodo,
   updateTodo,
 } from "./controllers/api/todo.js";
-import { getCategories } from "./controllers/api/categorie.js";
+import {
+  getCategories,
+  postCategories,
+  deleteCategories,
+  updateCategories,
+} from "./controllers/api/categorie.js";
 
 //create express app
 const app = express();
@@ -49,6 +54,9 @@ app.delete("/api/todo/:id", deleteTodo);
 app.put("/api/todo", updateTodo);
 
 app.get("/api/categorie", getCategories);
+app.post("/api/categorie", postCategories);
+app.delete("/api/categorie/:id", deleteCategories);
+app.put("/api/categorie", updateCategories);
 
 // start the server
 DataSource.initialize()

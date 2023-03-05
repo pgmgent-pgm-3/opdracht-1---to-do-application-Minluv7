@@ -14,4 +14,12 @@ export default new EntitySchema({
       type: "varchar",
     },
   },
+  relations: {
+    todo: {
+      target: "Todo",
+      type: "one-to-many",
+      inverseSide: "owner",
+      cascade: true,
+    },
+  },
 });

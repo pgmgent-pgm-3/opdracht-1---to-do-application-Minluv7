@@ -17,4 +17,15 @@ export default new EntitySchema({
       type: "varchar",
     },
   },
+  relations: {
+    owner: {
+      target: "Categorie",
+      type: "many-to-one",
+      inverseSide: "todo",
+      JoinColumn: {
+        name: "categorie_id",
+      },
+      onDelete: "CASCADE",
+    },
+  },
 });

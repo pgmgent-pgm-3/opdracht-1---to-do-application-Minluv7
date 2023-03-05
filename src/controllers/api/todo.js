@@ -30,7 +30,12 @@ export const postTodo = async (req, res, next) => {
       });
     } else {
       // if the Todo does not exist... create a new one in the database!
-      await todoRepository.save(req.body);
+      await todoRepository.save({
+        ...req.body,
+        ownerId: {
+          name: "koken",
+        },
+      });
 
       // let the client know that we added an entry
       res.status(201).json({
