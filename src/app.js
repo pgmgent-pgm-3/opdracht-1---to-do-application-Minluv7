@@ -6,7 +6,7 @@ dotenv.config();
 import { create } from "express-handlebars";
 import { SOURCE_PATH } from "./constants.js";
 //import { DefaultDeserializer } from "v8";
-import { home } from "./controllers/home.js";
+import { categoryTodos, home } from "./controllers/home.js";
 import bodyParser from "body-parser";
 import DataSource from "./lib/DataSource.js";
 import {
@@ -44,6 +44,7 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 
 // ----------- ROUTES -------------- //
 app.get("/", home);
+app.get("/category/:id", categoryTodos);
 
 /**
  * API ROUTING
