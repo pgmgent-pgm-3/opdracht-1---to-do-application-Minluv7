@@ -4,8 +4,9 @@ import { DataSource } from "typeorm";
 
 import Categorie from "../models/Categorie.js";
 import Todo from "../models/Todo.js";
+import User from "../models/User.js";
 
-const entities = [Categorie, Todo];
+const entities = [Categorie, Todo, User];
 
 import * as dotenv from "dotenv";
 dotenv.config();

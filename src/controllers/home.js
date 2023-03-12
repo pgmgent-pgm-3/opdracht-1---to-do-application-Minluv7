@@ -8,11 +8,20 @@ import data from "../data/data.js";
 export const home = async (req, res) => {
   const todoRepo = DataSource.getRepository("Todo");
   const categorieRepo = DataSource.getRepository("Categorie");
+  //const userRepository = DataSource.getRepository("User");
 
   const categorieData = await categorieRepo.find();
   const todoData = await todoRepo.findOneBy({ id: 1 });
+  // const userData = await userRepository.findOne({
+  // where: { id: null },
+  //});
 
-  res.render("home", { ...data, nav_items: categorieData, todoData });
+  res.render("home", {
+    ...data,
+    nav_items: categorieData,
+    todoData,
+    user: req.user,
+  });
 };
 
 export const categoryTodos = async (req, res) => {
@@ -32,7 +41,7 @@ export const categoryTodos = async (req, res) => {
   //req.send(allTodosFromCategory);
   console.log(allTodosFromCategory);
 
-  const todoData = await todoRepo.findOneBy({ id: 1 });
+  //const todoData = await todoRepo.findOneBy({ id: 1 });
 
   res.render("home", {
     ...data,

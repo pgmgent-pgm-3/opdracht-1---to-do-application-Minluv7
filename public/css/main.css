@@ -124,11 +124,15 @@ header {
   height: 2rem;
 }
 
+form {
+  display: contents;
+}
+
 .logout,
 .categories {
   border: none;
   background: hsl(259, 56%, 50%);
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   color: hsl(0, 0%, 100%);
   border-radius: 1rem;
 }
@@ -151,4 +155,68 @@ header {
 form,
 input {
   width: 100%;
+}
+
+body .auth-container {
+  margin: 25%;
+}
+
+.auth-container {
+  box-sizing: border-box;
+  width: 25rem;
+  margin: 0 auto;
+
+  padding: 1.875rem;
+  border: 0.0625rem solid hsl(0, 0%, 100%);
+}
+
+.auth-container h4 {
+  margin: 0 0 1.25rem 0;
+  font-size: 2rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.auth-container form {
+  width: 100%;
+}
+
+.auth-container form .input-container + .input-container {
+  margin-top: 0.625rem;
+}
+
+.auth-container form .input-container label {
+  display: block;
+  color: hsl(0, 0%, 100%);
+}
+
+.auth-container form .input-container .error {
+  color: hsl(0, 100%, 50%);
+  font-size: 0.8rem;
+}
+
+.auth-container .footer-container {
+  display: flex;
+  margin-top: 2.5rem;
+  justify-content: flex-end;
+}
+
+.auth-container .footer-container .btn + .btn {
+  margin-left: 0.625rem;
+}
+
+.auth-container p a {
+  color: hsl(0, 0%, 100%);
+}
+
+.form-errors {
+  list-style: none;
+  padding: 0;
+}
+
+.form-errors li {
+  color: hsl(0, 0%, 100%);
+  background-color: rgb(180, 179, 179);
+  padding: 0.125rem 0.3125rem;
+  text-align: center;
+  margin: 0.625rem 0;
 }
