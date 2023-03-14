@@ -15,7 +15,8 @@ export const getTodo = async (req, res, next) => {
 
 export const postTodo = async (req, res, next) => {
   try {
-    const todoRepository = DataSource.getRepository("Todo");
+    // save todo to the database
+    const todoRepository = await DataSource.getRepository("Todo");
 
     // get existing Todo (if there is one...)
     const todos = await todoRepository.findOneBy({
