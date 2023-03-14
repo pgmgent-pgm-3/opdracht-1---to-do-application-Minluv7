@@ -12,9 +12,16 @@ export const home = async (req, res) => {
 
   const categorieData = await categorieRepo.find();
   const todoData = await todoRepo.findOneBy({ id: 1 });
+  // const allTodos = await todoRepo.find({
+  //   where: {
+  //     "user.id": id, // id of the user that is logged in
+  //   },
+  // });
+  // console.log(allTodos);
+
   // const userData = await userRepository.findOne({
-  // where: { id: null },
-  //});
+  //   where: { userData },
+  // });
 
   res.render("home", {
     ...data,
@@ -31,11 +38,16 @@ export const categoryTodos = async (req, res) => {
   const todoRepo = DataSource.getRepository("Todo");
   const categorieRepo = DataSource.getRepository("Categorie");
 
-  const categorieData = await categorieRepo.find();
+  const categorieData = await categorieRepo.find({
+    where: { "user.id": 3 },
+  });
+
+  console.log(categorieData);
 
   const allTodosFromCategory = await todoRepo.find({
     where: {
       "owner.id": id,
+      "user.id": 3,
     },
   });
   //req.send(allTodosFromCategory);
@@ -47,5 +59,6 @@ export const categoryTodos = async (req, res) => {
     ...data,
     nav_items: categorieData,
     allTodosFromCategory,
+    user: req.user,
   });
 };

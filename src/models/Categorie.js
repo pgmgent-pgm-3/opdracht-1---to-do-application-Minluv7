@@ -21,5 +21,13 @@ export default new EntitySchema({
       inverseSide: "owner",
       cascade: true,
     },
+    user: {
+      target: "User",
+      type: "many-to-one",
+      joinColumn: {
+        name: "user_id",
+      },
+      onDelete: "CASCADE",
+    },
   },
 });

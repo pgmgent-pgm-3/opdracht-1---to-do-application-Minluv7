@@ -22,8 +22,16 @@ export default new EntitySchema({
       target: "Categorie",
       type: "many-to-one",
       inverseSide: "todo",
-      JoinColumn: {
+      joinColumn: {
         name: "categorie_id",
+      },
+      onDelete: "CASCADE",
+    },
+    user: {
+      target: "User",
+      type: "many-to-one",
+      joinColumn: {
+        name: "user_id",
       },
       onDelete: "CASCADE",
     },
