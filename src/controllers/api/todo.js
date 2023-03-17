@@ -34,7 +34,7 @@ export const postTodo = async (req, res, next) => {
       await todoRepository.save({
         ...req.body,
         ownerId: {
-          name: "koken",
+          name: "",
         },
       });
 
@@ -55,16 +55,16 @@ export const deleteTodo = async (req, res, next) => {
   try {
     // get the id with destructuring
     const { id } = req.params;
-    // get the user repository
+    // zoek de todo op in de database
     const todoRepository = DataSource.getRepository("Todo");
-
-    // get the user with a specific id
+    // get the todo with a specific id
     const todos = await todoRepository.findOneBy({ id });
 
-    // does the user exist?
+    // does the todo exist?
     if (todos) {
-      // remove the user
-      await todoRepository.delete(todos);
+      // remove the todo
+      const deleteTodo = await todoRepository.delete(todos);
+      res.render(deleteTodo);
     }
 
     // send a response

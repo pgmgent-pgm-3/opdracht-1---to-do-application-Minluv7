@@ -2,7 +2,10 @@
   
 
   {{#each allTodosFromCategory}}
+  
     <li>
+      
+      <form action="">
       <button class="check_svg">
         <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -15,18 +18,26 @@
 </svg>
        
       </button>
+      </form>
       
       <div class="result">
         {{name}}
       </div>
+
       
+      <form action="">
       <button class="delete_svg">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 58.67"><defs><style>.cls-1{fill:#35353d;}</style></defs><title>Asset 25</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M61.33,5.33H48V2.67A2.66,2.66,0,0,0,45.33,0H18.67A2.66,2.66,0,0,0,16,2.67V5.33H2.67a2.67,2.67,0,0,0,0,5.34H8v40a8,8,0,0,0,8,8H48a8,8,0,0,0,8-8v-40h5.33a2.67,2.67,0,1,0,0-5.34ZM50.67,50.67A2.67,2.67,0,0,1,48,53.33H16a2.67,2.67,0,0,1-2.67-2.66v-40H50.67Z"/><path class="cls-1" d="M24,45.33a2.67,2.67,0,0,0,2.67-2.66V21.33a2.67,2.67,0,0,0-5.34,0V42.67A2.67,2.67,0,0,0,24,45.33Z"/><path class="cls-1" d="M40,45.33a2.67,2.67,0,0,0,2.67-2.66V21.33a2.67,2.67,0,0,0-5.34,0V42.67A2.67,2.67,0,0,0,40,45.33Z"/></g></g></svg>
       </button>
+      </form>
+
+      <form action="">
       <button class="change_svg">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g id="Layer_93" data-name="Layer 93"><path d="M12.55,39.49,9.69,51.91a2,2,0,0,0,2.4,2.4l12.42-2.86a2,2,0,0,0,1-.54c7.16-7.15,28.32-28.31,35.14-35.14a2,2,0,0,0,0-2.83L51.06,3.39a2,2,0,0,0-2.83,0L37.93,13.68,13.09,38.53A2,2,0,0,0,12.55,39.49ZM49.65,7.63l6.72,6.73L48.9,21.82,42.18,15.1ZM16.32,41l23-23,6.72,6.72-23,23-8.74,2Z"/><path d="M60,30a2,2,0,0,0-2,2V58H6V6H32a2,2,0,0,0,0-4H4A2,2,0,0,0,2,4V60a2,2,0,0,0,2,2H60a2,2,0,0,0,2-2V32A2,2,0,0,0,60,30Z"/></g>
       </svg>
       </button>
+      </form>
+
     </li>
   {{/each}}
   

@@ -5,35 +5,33 @@ export default {
   //     name: "logo",
   //     button: "Logout",
   //   },
-
   // add: {
   //   title: "",
   //   placeholder: "",
   //   svg: "../img/plus.svg",
   //   svgName: "plus",
   // },
-
-  output: [
-    {
-      text: "Wortelchakra",
-    },
-    {
-      text: "Heiligbeenchakra",
-    },
-    {
-      text: "Navelchakra",
-    },
-    {
-      text: "Hartchakra",
-    },
-    {
-      text: "Keelchakra",
-    },
-    {
-      text: "Voorhoofdchakra",
-    },
-    {
-      text: "Kroonchakra",
-    },
-  ],
+  // output: [
+  //   {
+  //     text: "Wortelchakra",
+  //   },
+  //   {
+  //     text: "Heiligbeenchakra",
+  //   },
+  //   {
+  //     text: "Navelchakra",
+  //   },
+  //   {
+  //     text: "Hartchakra",
+  //   },
+  //   {
+  //     text: "Keelchakra",
+  //   },
+  //   {
+  //     text: "Voorhoofdchakra",
+  //   },
+  //   {
+  //     text: "Kroonchakra",
+  //   },
+  // ],
 };

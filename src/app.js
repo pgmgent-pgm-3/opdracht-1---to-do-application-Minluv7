@@ -71,6 +71,7 @@ app.post("/register", registerAuthentication, postRegister, register);
 /**
  * API ROUTING
  */
+
 app.get("/api/todo", getTodo);
 app.post("/api/todo", postTodo);
 app.delete("/api/todo/:id", deleteTodo);

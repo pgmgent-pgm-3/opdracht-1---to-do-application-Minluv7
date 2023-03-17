@@ -3,14 +3,16 @@
  */
 import DataSource from "../lib/DataSource.js";
 
-import data from "../data/data.js";
+//import data from "../data/data.js";
 
 export const home = async (req, res) => {
   const todoRepo = DataSource.getRepository("Todo");
   const categorieRepo = DataSource.getRepository("Categorie");
+  const userRepo = DataSource.getRepository("User");
 
   const categorieData = await categorieRepo.find();
-  const todoData = await todoRepo.findOneBy({ id: 1 });
+  const todoData = await todoRepo.findOneBy({ id: null });
+  const userData = await userRepo.find();
 
   // const allTodos = await todoRepo.find({
   //   where: {
@@ -22,10 +24,10 @@ export const home = async (req, res) => {
   // });
 
   res.render("home", {
-    ...data,
     nav_items: categorieData,
     todoData,
     user: req.user,
+    userData,
   });
 };
 
@@ -51,10 +53,17 @@ export const categoryTodos = async (req, res) => {
     },
   });
 
+  // const userRepo = DataSource.getRepository("User");
+
+  // const allTodos = await userRepo.find({
+  //   where: {
+  //     "user.id": 2,
+  //   },
+  // });
+
   //const todoData = await todoRepo.findOneBy({ id: 1 });
 
   res.render("home", {
-    ...data,
     nav_items: categorieData,
     allTodosFromCategory,
     user: req.user,
