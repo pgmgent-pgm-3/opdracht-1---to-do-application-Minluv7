@@ -1,4 +1,5 @@
 import DataSource from "../../lib/DataSource.js";
+import { validationResult } from "express-validator";
 
 export const getTodo = async (req, res, next) => {
   try {
@@ -53,40 +54,54 @@ export const postTodo = async (req, res, next) => {
 
 export const postCategoryTodo = async (req, res, next) => {
   try {
-    console.log(req.body);
-    // save todo to the database
-    const todoRepository = await DataSource.getRepository("Todo");
-    const categorieRepository = await DataSource.getRepository("Categorie");
-    // get existing Todo (if there is one...)
-    const todos = await todoRepository.findOneBy({
-      name: req.body.name,
-      done: req.body.done,
-    });
+    const errors = validationResult(req);
+    console.log(req);
 
-    const categorie = await categorieRepository.findOneBy({
-      name: req.body.name,
-    });
-
-    // if we have an Todo, return the existing one
-    if ((todos, categorie)) {
-      res.status(200).json({
-        status: "todo already exists in database",
+    if (!errors.isEmpty()) {
+      // create an object with the error fields
+      const errorFields = {};
+      // iterate over the errors
+      errors.array().forEach((error) => {
+        errorFields[error.param] = error.msg;
       });
+      //put the errorfields in the current request
+      req.formErrorsFields = errorFields;
+
+      return next();
     } else {
+      // save todo to the database
+      const todoRepository = await DataSource.getRepository("Todo");
+      // get existing Todo (if there is one...)
+      const todos = await todoRepository.findOneBy({
+        name: req.body.name,
+        done: req.body.done,
+      });
+
+      // const categorie = await categorieRepository.findOneBy({
+      //   name: req.body.name,
+      // });
+
+      // if we have an Todo, return the existing one
+      if (!todos) {
+        req.formErrors = [{ message: "todo bestaat al" }];
+        return next();
+        // res.status(200).json({
+        //   status: "todo already exists in database",
+        // });
+      }
+
       // if the Todo does not exist... create a new one in the database!
       await todoRepository.save({
-        ...req.body,
-        owner: {
-          name: "",
-          done: "",
-        },
+        name: req.body.name,
+        done: req.body.done,
       });
-      await categorieRepository.save({
-        ...req.body,
-        todo: {
-          name: "",
-        },
-      });
+
+      // ...req.body,
+      // owner: {
+      //   name: req.boy.name,
+      //   done: req.boy.name,
+      // },
+      //});
 
       // let the client know that we added an entry
       res.status(201).json({

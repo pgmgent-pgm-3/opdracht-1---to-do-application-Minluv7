@@ -64,7 +64,7 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 app.get("/", jwtAuth, home);
 
 app.get("/category/:id", categoryTodos);
-app.post("/api/todo/:id", postCategoryTodo);
+app.post("/category/:id", postCategoryTodo);
 
 app.get("/login", login);
 app.get("/register", register);
