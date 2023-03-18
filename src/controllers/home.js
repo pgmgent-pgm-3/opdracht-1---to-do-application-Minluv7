@@ -8,11 +8,14 @@ import DataSource from "../lib/DataSource.js";
 export const home = async (req, res) => {
   const todoRepo = DataSource.getRepository("Todo");
   const categorieRepo = DataSource.getRepository("Categorie");
-  const userRepo = DataSource.getRepository("User");
+  //const userRepo = DataSource.getRepository("User");
 
   const categorieData = await categorieRepo.find();
-  const todoData = await todoRepo.findOneBy({ id: null });
-  const userData = await userRepo.find();
+  const todoData = await todoRepo.findOneBy({ id: 1 });
+  //const userData = await userRepo.find();
+  // {where: { id: user },
+  //relations: ["categories", "todos"],
+  // });
 
   // const allTodos = await todoRepo.find({
   //   where: {
@@ -27,7 +30,7 @@ export const home = async (req, res) => {
     nav_items: categorieData,
     todoData,
     user: req.user,
-    userData,
+    // userData,
   });
 };
 
@@ -40,7 +43,7 @@ export const categoryTodos = async (req, res) => {
 
   const categorieData = await categorieRepo.find({
     where: {
-      "user.id": 3,
+      "user.id": 2,
     },
   });
 
@@ -49,7 +52,7 @@ export const categoryTodos = async (req, res) => {
   const allTodosFromCategory = await todoRepo.find({
     where: {
       "owner.id": id,
-      "user.id": 3,
+      "user.id": 2,
     },
   });
 
@@ -57,7 +60,7 @@ export const categoryTodos = async (req, res) => {
 
   // const allTodos = await userRepo.find({
   //   where: {
-  //     "user.id": 2,
+  //     "user.id": id,
   //   },
   // });
 

@@ -12,6 +12,7 @@ import DataSource from "./lib/DataSource.js";
 import {
   getTodo,
   postTodo,
+  postCategoryTodo,
   deleteTodo,
   updateTodo,
 } from "./controllers/api/todo.js";
@@ -61,7 +62,9 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 
 // ----------- ROUTES -------------- //
 app.get("/", jwtAuth, home);
+
 app.get("/category/:id", categoryTodos);
+app.post("/api/todo/:id", postCategoryTodo);
 
 app.get("/login", login);
 app.get("/register", register);

@@ -113,7 +113,7 @@ header {
   gap: 1rem;
 }
 
-.logo_title {
+.logo_title a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -219,4 +219,8 @@ body .auth-container {
   padding: 0.125rem 0.3125rem;
   text-align: center;
   margin: 0.625rem 0;
+}
+
+.email {
+  color: hsl(0, 0%, 100%);
 }
