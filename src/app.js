@@ -84,15 +84,15 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 app.get("/", jwtAuth, home, );
 
 app.post('/todo', jwtAuth, postHomeTodo, home);
-app.get("/todo", getHomeTodo);
-app.delete("/todo/:id", deleteHomeTodo);
-app.put("/todo", updateHomeTodo);
+app.get("/todo", jwtAuth, getHomeTodo, home);
+app.delete("/todo/:id", jwtAuth, deleteHomeTodo);
+app.put("/todo", jwtAuth, updateHomeTodo, home);
 
-app.get("/category/:id", jwtAuth, categoryTodos);
-app.get("/category", getHomeCategory);
-app.post("/category", postHomeCategory);
-app.delete("/category/:id", deleteHomeCategory);
-app.put("/category", updateHomeCategory);
+app.get("/category/:id", jwtAuth, categoryTodos, home);
+app.get("/category", jwtAuth, getHomeCategory, home);
+app.post("/category", jwtAuth, postHomeCategory, home);
+app.delete("/category/:id", jwtAuth, deleteHomeCategory);
+app.put("/category", jwtAuth, updateHomeCategory);
 
 app.get("/user", getHomeUsers);
 

@@ -4,9 +4,7 @@ import DataSource from "../lib/DataSource.js";
 export const getTodo = async (req, res, next) => {
   try {
     const todoRepository = DataSource.getRepository("Todo");
-    const todos = await todoRepository.find({
-      relations: ["owner"]
-    });
+    const todos = await todoRepository.find();
 
     res.status(200).json(todos);
   } catch (e) {
@@ -19,7 +17,6 @@ export const getTodo = async (req, res, next) => {
 
 export const postTodo = async (req, res, next) => {
   try {
-    console.log(req.user.id);
     // save todo to the database
     const todoRepository = await DataSource.getRepository("Todo");
     // get existing Todo (if there is one...)
@@ -36,9 +33,7 @@ export const postTodo = async (req, res, next) => {
     });
     // if we have an Todo, return the existing one
     if (todos) {
-      res.status(200).json({
-        status: "Interest already exists in database",
-      });
+      res.status(200).json(res.redirect("/"));
     } else {
       // if the Todo does not exist... create a new one in the database!
       await todoRepository.save({

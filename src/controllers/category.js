@@ -3,10 +3,16 @@ import DataSource from "../lib/DataSource.js";
 export const getCategories = async (req, res, next) => {
   try {
     const categorieRepository = DataSource.getRepository("Categorie");
-    const categories = await categorieRepository.find();
+    const categories = await categorieRepository.findOne({
+        where: {
+            categorie: req.body.name,
+            todo: {
+              name:  req.body.name,
+            }
+          }
+        });
     console.log(categories);
-    // const interest = interests.filter((interest) => interest.id === 1);
-    // console.log('interest with id 1', interest.pop());
+    
     res.status(200).json(categories);
   } catch (e) {
     res.status(500).json({
@@ -20,9 +26,7 @@ export const postCategories = async (req, res, next) => {
     const categorieRepository = DataSource.getRepository("Categorie");
 
     // get existing Todo (if there is one...)
-    const categories = await categorieRepository.findOneBy({
-      name: req.body.name,
-    });
+    const categories = await categorieRepository.find();
 
     // if we have an Todo, return the existing one
     if (categories) {
