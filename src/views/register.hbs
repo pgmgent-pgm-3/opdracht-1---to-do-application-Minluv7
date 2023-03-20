@@ -1,5 +1,5 @@
 <section class="auth-container register">
-  <h4>Register</h4>
+  <h4>Registeer</h4>
   <p><a href="/login">Login</a></p>
   {{>form-errors this}}
   <form method="post" action="register">
@@ -7,8 +7,10 @@
       {{>form-input this}}
     {{/each}}
     <div class="footer-container">
+      <form action="">
       <input type="reset" class="btn btn-tertiary" value="Clear">
       <input type="submit" class="btn btn-primary" value="Register">
+      </form>
     </div>
   </form>
 </section>

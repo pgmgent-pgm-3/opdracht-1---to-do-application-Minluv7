@@ -86,7 +86,7 @@ app.get("/", jwtAuth, home, );
 app.post('/todo', jwtAuth, postHomeTodo, home);
 app.get("/todo", jwtAuth, getHomeTodo, home);
 app.delete("/todo/:id", jwtAuth, deleteHomeTodo);
-app.put("/todo", jwtAuth, updateHomeTodo, home);
+app.put("/todo", jwtAuth, updateHomeTodo);
 
 app.get("/category/:id", jwtAuth, categoryTodos, home);
 app.get("/category", jwtAuth, getHomeCategory, home);
