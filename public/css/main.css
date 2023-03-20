@@ -223,4 +223,6 @@ body .auth-container {
 
 .email {
   color: hsl(0, 0%, 100%);
+  text-align: center;
+  padding: 1rem 0;
 }

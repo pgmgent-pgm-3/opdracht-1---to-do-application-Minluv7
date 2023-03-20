@@ -12,17 +12,37 @@ import DataSource from "./lib/DataSource.js";
 import {
   getTodo,
   postTodo,
-  postCategoryTodo,
   deleteTodo,
   updateTodo,
 } from "./controllers/api/todo.js";
+
+import {
+  getTodo as getHomeTodo,
+  postTodo as postHomeTodo,
+  deleteTodo as deleteHomeTodo,
+  updateTodo as updateHomeTodo,
+} from './controllers/todo.js';
+
 import {
   getCategories,
   postCategories,
   deleteCategories,
   updateCategories,
 } from "./controllers/api/categorie.js";
+
+import {
+  getCategories as getHomeCategory,
+  postCategories as postHomeCategory,
+  deleteCategories as deleteHomeCategory,
+  updateCategories as updateHomeCategory,
+} from "./controllers/category.js"
+
 import { getUsers } from "./controllers/api/user.js";
+
+import {
+  getUsers as getHomeUsers
+} from "./controllers/user.js"
+
 import {
   login,
   register,
@@ -61,10 +81,23 @@ app.set("views", path.join(SOURCE_PATH, "views"));
 //const port = process.env.PORT || 3000;
 
 // ----------- ROUTES -------------- //
-app.get("/", jwtAuth, home);
+app.get("/", jwtAuth, home, );
 
-app.get("/category/:id", categoryTodos);
-app.post("/category/:id", postCategoryTodo);
+app.post('/todo', jwtAuth, postHomeTodo, home);
+app.get("/todo", getHomeTodo);
+app.delete("/todo/:id", deleteHomeTodo);
+app.put("/todo", updateHomeTodo);
+
+app.get("/category/:id", jwtAuth, categoryTodos);
+app.get("/category", getHomeCategory);
+app.post("/category", postHomeCategory);
+app.delete("/category/:id", deleteHomeCategory);
+app.put("/category", updateHomeCategory);
+
+app.get("/user", getHomeUsers);
+
+
+// app.get("/category", postCategory);
 
 app.get("/login", login);
 app.get("/register", register);

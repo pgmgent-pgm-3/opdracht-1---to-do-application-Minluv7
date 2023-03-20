@@ -13,8 +13,12 @@ export const home = async (req, res) => {
   const categorieData = await categorieRepo.find();
   const todoData = await todoRepo.findOneBy({ id: 1 });
   //const userData = await userRepo.find();
-  // {where: { id: user },
-  //relations: ["categories", "todos"],
+
+  // {
+  //   where: {
+  //     id: user,
+  //     relations: ["categories"],
+  //   },
   // });
 
   // const allTodos = await todoRepo.find({
@@ -30,7 +34,7 @@ export const home = async (req, res) => {
     nav_items: categorieData,
     todoData,
     user: req.user,
-    // userData,
+   //userData,
   });
 };
 
@@ -43,7 +47,7 @@ export const categoryTodos = async (req, res) => {
 
   const categorieData = await categorieRepo.find({
     where: {
-      "user.id": 2,
+      "user.id": id,
     },
   });
 
@@ -52,7 +56,7 @@ export const categoryTodos = async (req, res) => {
   const allTodosFromCategory = await todoRepo.find({
     where: {
       "owner.id": id,
-      "user.id": 2,
+      "user.id": id,
     },
   });
 

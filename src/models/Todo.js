@@ -15,6 +15,7 @@ export default new EntitySchema({
     },
     done: {
       type: "varchar",
+      default: false
     },
   },
   relations: {
@@ -33,6 +34,7 @@ export default new EntitySchema({
       joinColumn: {
         name: "user_id",
       },
+      cascade: true,
       onDelete: "CASCADE",
     },
   },

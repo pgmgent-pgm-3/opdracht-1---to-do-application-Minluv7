@@ -18,7 +18,7 @@ export const register = async (req, res) => {
     },
     {
       name: "password",
-      label: "Password",
+      label: "Wachtwoord",
       type: "password",
       value: req.body?.password ? req.body.password : "",
       error: req.formErrorsFields?.password
@@ -50,7 +50,7 @@ export const login = async (req, res) => {
     },
     {
       name: "password",
-      label: "Password",
+      label: "Wachtwoord",
       type: "password",
       value: req.body?.password ? req.body.password : "",
       error: req.formErrorsFields?.password

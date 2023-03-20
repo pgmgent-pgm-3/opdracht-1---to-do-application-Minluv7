@@ -22,7 +22,6 @@ export default new EntitySchema({
       target: "Todo",
       type: "one-to-many",
       inverseSide: "user",
-      cascade: true,
     },
     categories: {
       target: "Categorie",
