@@ -20,9 +20,6 @@ export const postTodo = async (req, res, next) => {
   try {
     // save todo to the database
     const todoRepository = await DataSource.getRepository("Todo");
-
-  
-
     // get existing Todo (if there is one...)
     const todos = await todoRepository.findOne({
      where: {
@@ -41,12 +38,7 @@ export const postTodo = async (req, res, next) => {
       });
     } else {
       // if the Todo does not exist... create a new one in the database!
-      await todoRepository.save({
-        name: req.body.name,
-        owner: {
-          id: req.body.category
-        }
-      });
+      await todoRepository.save(req.body);
       // let the client know that we added an entry
       //res.redirect zorgt ervoor dat je in home blijft
       res.status(201).json(res.redirect("/"));
@@ -64,7 +56,6 @@ export const deleteTodo = async (req, res, next) => {
   try {
     // get the id with destructuring
     const { id } = req.params;
-    res.send(id); return;
     // zoek de todo op in de database
     const todoRepository = DataSource.getRepository("Todo");
     // get the todo with a specific id

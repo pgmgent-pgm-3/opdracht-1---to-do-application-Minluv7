@@ -26,7 +26,14 @@ export const postCategories = async (req, res, next) => {
     const categorieRepository = DataSource.getRepository("Categorie");
 
     // get existing Todo (if there is one...)
-    const categories = await categorieRepository.find();
+    const categories = await categorieRepository.findOne({
+      where: {
+        name: req.body.name,
+        user:{
+          id: req.user.id
+        }
+       }
+      });
 
     // if we have an Todo, return the existing one
     if (categories) {
@@ -35,12 +42,15 @@ export const postCategories = async (req, res, next) => {
       });
     } else {
       // if the Todo does not exist... create a new one in the database!
-      await categorieRepository.save(req.body);
+      await categorieRepository.save({
+        name: req.body.name,
+        user:{
+          id: req.user.id
+        }
+    });
 
       // let the client know that we added an entry
-      res.status(201).json({
-        status: "We create a new interest in the database!",
-      });
+      res.status(201).json(res.redirect("/"));
     }
   } catch (e) {
     res.status(500).json({

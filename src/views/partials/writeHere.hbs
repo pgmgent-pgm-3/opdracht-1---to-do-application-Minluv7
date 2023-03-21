@@ -1,7 +1,6 @@
 <h2>We've got things to do!</h2>
 <div class="add">
   <form method="post" action="/todo">
-    {{!-- <input type="text" name="category" placeholder="1"> --}}
       <select name="category">
       {{#each nav_items}}
       <option value="{{id}}">{{name}}</option>

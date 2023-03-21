@@ -83,16 +83,6 @@ export const updateCategories = async (req, res, next) => {
     const newCategories = {
       ...categories,
       ...req.body,
-      //   todo: [
-      //     {
-      //       name: "headphone kopen",
-      //       done: true,
-      //     },
-      //     {
-      //       name: "koreaanse zonnecrem kopen",
-      //       done: false,
-      //     },
-      //   ],
     };
 
     // save the data in the database
