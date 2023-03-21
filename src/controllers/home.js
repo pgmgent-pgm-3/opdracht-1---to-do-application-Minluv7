@@ -10,7 +10,13 @@ export const home = async (req, res) => {
   const categorieRepo = DataSource.getRepository("Categorie");
   
 
-  const categorieData = await categorieRepo.find();
+  const categorieData = await categorieRepo.find({
+    where: {
+      user: {
+        id: req.user.id
+      }
+    }
+  });
   const todoData = await todoRepo.findOneBy({ id: null });
  
 

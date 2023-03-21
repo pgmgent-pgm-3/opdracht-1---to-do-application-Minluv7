@@ -62,22 +62,20 @@ export const deleteTodo = async (req, res, next) => {
     // zoek de todo op in de database
     const todoRepository = DataSource.getRepository("Todo");
     // get the todo with a specific id
-    const todos = await todoRepository.findOneBy({ id });
+    const todos = await todoRepository.findOne({ where: {
+      id: id
+    },  relations: ['owner']});
 
     // does the todo exist?
     if (todos) {
       // remove the todo
-      const deleteTodo = await todoRepository.delete(todos);
-      res.render(deleteTodo);
+      await todoRepository.delete(todos);
     }
-    console.log("deleteTodo");
-    // send a response
-    res.status(204).json({
-      status: "We deleted the record in the database!",
-    });
+    res.redirect('/category/' + todos.owner.id);
   } catch (e) {
     res.status(500).json({
       status: "Er liep iets fout!",
+      message: e.message
     });
   }
 };

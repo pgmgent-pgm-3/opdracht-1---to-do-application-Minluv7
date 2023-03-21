@@ -64,6 +64,7 @@ export const deleteTodo = async (req, res, next) => {
   try {
     // get the id with destructuring
     const { id } = req.params;
+    res.send(id); return;
     // zoek de todo op in de database
     const todoRepository = DataSource.getRepository("Todo");
     // get the todo with a specific id
@@ -72,8 +73,7 @@ export const deleteTodo = async (req, res, next) => {
     // does the todo exist?
     if (todos) {
       // remove the todo
-      const deleteTodo = await todoRepository.delete(todos);
-      res.render(deleteTodo);
+      await todoRepository.delete(todos);
     }
     console.log("deleteTodo");
     // send a response
