@@ -91,7 +91,7 @@ app.put("/todo", jwtAuth, updateHomeTodo);
 app.get("/category/:id", jwtAuth, categoryTodos, home);
 app.get("/category", jwtAuth, getHomeCategory, home);
 app.post("/category", jwtAuth, postHomeCategory, home);
-app.delete("/category/:id", jwtAuth, deleteHomeCategory);
+app.post("/category/delete/:id", jwtAuth, deleteHomeCategory);
 app.put("/category", jwtAuth, updateHomeCategory);
 
 app.get("/user", getHomeUsers);

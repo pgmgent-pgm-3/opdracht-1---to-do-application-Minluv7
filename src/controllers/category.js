@@ -68,7 +68,11 @@ export const deleteCategories = async (req, res, next) => {
     const categorieRepository = DataSource.getRepository("Categorie");
 
     // get the user with a specific id
-    const categories = await categorieRepository.findOneBy({ id });
+    const categories = await categorieRepository.findOne({where:{
+id: id,
+name: req.body.name
+    }, relations: ['user']
+  });
 
     // does the user exist?
     if (categories) {
@@ -77,9 +81,7 @@ export const deleteCategories = async (req, res, next) => {
     }
 
     // send a response
-    res.status(204).json({
-      status: "We deleted the record in the database!",
-    });
+    res.status(204).json(res.redirect('/'));
   } catch (e) {
     res.status(500).json({
       status: "Er liep iets fout!",

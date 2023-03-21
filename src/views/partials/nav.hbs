@@ -4,9 +4,11 @@
      <form method="post" action="/category">
     <input type="text" placeholder="categorie toevoegen" name="name" />
   </form>
-    {{#each nav_items}}
+  {{#each nav_items}}
+  <form class="side__category" method="post" action="/category/delete/{{id}}" name="deleteCategories">
       <a href="/category/{{id}}" class="categories"> {{name}} </a>
-    {{/each}}
-   
+      <button class="delete__category" type="submit" class="nav__delete" >X</button>
+  </form>
+  {{/each}}
   </div>
 </div>

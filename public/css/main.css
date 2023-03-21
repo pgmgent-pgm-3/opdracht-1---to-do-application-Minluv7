@@ -74,6 +74,7 @@ header {
 .side a {
   text-decoration: none;
   text-align: center;
+  flex: 1;
 }
 
 .output,
@@ -96,7 +97,6 @@ header {
   background-color: hsl(0, 0%, 100%);
   padding: 0.1875rem;
   width: 100%;
-  height: 1.8125rem;
 }
 
 .add {
@@ -226,4 +226,15 @@ body .auth-container {
   color: hsl(0, 0%, 100%);
   text-align: center;
   padding: 1rem 0;
+}
+
+.side__category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete__category{
+  background-color: #ffe2ff;
+  border-radius: .3125rem;
+  border: 0
 }
