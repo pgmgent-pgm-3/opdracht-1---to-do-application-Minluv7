@@ -82,21 +82,35 @@ export const deleteTodo = async (req, res, next) => {
 
 export const updateTodo = async (req, res, next) => {
   try {
+    const { id } = req.params;
     const todoRepository = DataSource.getRepository("Todo");
-    const todos = await todoRepository.findOneBy({ id: req.body.id });
-
-    // change the name of the user
-    // user.name = req.body.name;
+    const todos = await todoRepository.findOne(
+    {where:{
+      id: id,
+      name: req.body.name,
+  },
+        
+  })
+    console.log(todos)
+    
     const newTodos = {
       ...todos,
       ...req.body,
+     
     };
 
-    // save the data in the database
-    await todoRepository.save(newTodos);
 
+    // save the data in the database
+    await todoRepository.save(newTodos,    
+      {where:{
+        id: id,
+        name: req.body.name},
+      }
+    );
+
+    
     // give a response to the client
-    res.status(200).json(newTodos);
+    res.status(200).json(res.redirect('/category/' + todos.owner.id));
   } catch (e) {
     res.status(500).json({
       status: "Er liep iets fout!" + e.message,

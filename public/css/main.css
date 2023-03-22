@@ -97,6 +97,7 @@ header {
   background-color: hsl(0, 0%, 100%);
   padding: 0.1875rem;
   width: 100%;
+  display: flex;
 }
 
 .add {
